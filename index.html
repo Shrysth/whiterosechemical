@@ -1,404 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>White Rose Chemical and Homecare</title>
-    <style>
-        /* CSS Styles */
-        :root {
-            --primary-color: #9a9a9a;
-            --secondary-color: #e84393;
-            --accent-color: #f1c40f;
-            --light-bg: #f9f9f9;
-            --text-color: #333;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            color: var(--text-color);
-            background-color: #fff;
-            line-height: 1.6;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo img {
-            height: 50px;
-            width: 50px;
-            object-fit: contain;
-            background-color: #fff;
-            border-radius: 50%;
-            padding: 5px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--secondary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.7));
-            padding: 4rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #fff;
-            min-height: 60vh;
-        }
-
-        .hero-content {
-            flex: 1;
-            max-width: 600px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #e0e0e0;
-        }
-
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .btn {
-            padding: 12px 30px;
-            background-color: var(--secondary-color);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            transition: background 0.3s, transform 0.2s;
-            display: inline-block;
-        }
-
-        .btn:hover {
-            background-color: #d6307b;
-            transform: translateY(-2px);
-        }
-
-        /* Products Section */
-        .products-section {
-            padding: 5rem 5%;
-            background-color: var(--light-bg);
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            color: #666;
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .product-card {
-            background: #fff;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .product-card img {
-            max-width: 100%;
-            height: 250px;
-            object-fit: contain;
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-        }
-
-        .product-title {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .product-desc {
-            color: #666;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .features-list {
-            list-style: none;
-            text-align: left;
-            width: 100%;
-        }
-
-        .features-list li {
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 0.9rem;
-        }
-
-        .features-list li::before {
-            content: '✓';
-            color: #27ae60;
-            font-weight: bold;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary-color);
-            color: #fff;
-            text-align: center;
-            padding: 3rem 5% 2rem;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-brand {
-            text-align: left;
-        }
-
-        .footer-brand img {
-            height: 40px;
-            margin-bottom: 10px;
-            background: #fff;
-            border-radius: 50%;
-            padding: 3px;
-        }
-
-        .footer-info {
-            text-align: right;
-        }
-
-        .footer-info p {
-            margin: 8px 0;
-            font-size: 1.05rem;
-        }
-
-        .footer-info strong {
-            color: var(--secondary-color);
-        }
-
-        @media (max-width: 900px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                gap: 2rem;
-            }
-            .hero-content {
-                margin: 0 auto;
-            }
-            .footer-content {
-                flex-direction: column;
-                gap: 2rem;
-                text-align: center;
-            }
-            .footer-brand, .footer-info {
-                text-align: center;
-            }
-            nav ul {
-                display: none;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="White Rose Chemical and Homecare cleaning products">
+  <title>White Rose Chemical and Homecare</title>
+  <style>
+    :root{--ink:#111;--green:#77945d;--pink:#f7dbe4;--line:#e6e6e6}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+    .page{width:100%;margin:0;background:#fff;min-height:100vh;overflow:hidden}
+    header{height:86px;padding:0 11%;display:flex;align-items:center;justify-content:space-between;background:#fff}
+    .brand{display:flex;align-items:center;gap:14px;font-size:17px;font-weight:800;line-height:1.1}
+    .brand img{width:59px;height:59px;object-fit:contain}
+    nav{display:flex;gap:34px}
+    nav a{position:relative;color:#171717;text-decoration:none;font-size:13px;font-weight:700;padding:34px 0 11px}
+    nav a:first-child{color:var(--green)}
+    nav a:first-child:after{content:"";position:absolute;height:1px;left:0;right:0;bottom:4px;background:var(--green)}
+    .hero{height:466px;position:relative;overflow:hidden;background:radial-gradient(circle at 80% 24%,#fff 0 3%,transparent 8%),linear-gradient(105deg,#d8e2e1 0,#eef1f2 42%,#fff4f8 72%,#f8d6df)}
+    .hero:before{content:"🌹";position:absolute;left:26px;top:20px;font-size:190px;filter:grayscale(1) brightness(3);opacity:.85;transform:rotate(-16deg)}
+    .hero:after{content:"🌸  🌸\A    🌸 🌸 🌸\A  🌸  🌸";white-space:pre;position:absolute;right:-40px;top:50px;color:#ea86a9;font-size:70px;line-height:.8;transform:rotate(-10deg);opacity:.75}
+    h1{position:relative;z-index:2;margin:43px auto 0;text-align:center;font-size:37px;line-height:1.06;text-transform:uppercase;letter-spacing:-1.3px}
+    .lemons{position:absolute;z-index:1;left:20px;bottom:25px;font-size:102px;letter-spacing:-40px;filter:saturate(1.2)}
+    .hero-products{position:absolute;z-index:3;width:470px;max-width:55%;height:auto;left:50%;bottom:8px;transform:translateX(-40%);filter:drop-shadow(0 10px 8px #4b31452c)}
+    main{position:relative;padding:29px 12% 34px;background:#fff}
+    main:before,main:after{content:"❀";position:absolute;color:#efcbd7;font-size:135px;opacity:.45;z-index:0}
+    main:before{left:-28px;top:330px} main:after{right:-18px;bottom:180px}
+    section{position:relative;z-index:1;scroll-margin-top:20px}
+    h2{text-align:center;margin:0 0 20px;font-size:27px;line-height:1.1;text-transform:uppercase}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-bottom:46px}
+    .card{min-width:0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 16px 16px;box-shadow:0 5px 10px #0002;text-align:left}
+    .bottle-window{height:176px;overflow:hidden;position:relative}
+    .bottle-window img{position:absolute;width:500px;max-width:none;top:-2px}
+    .bottle-window.white img{left:-151px}.bottle-window.rose img{left:-44px}.bottle-window.sandal img{left:-256px}
+    .card h3{text-align:center;font-size:19px;line-height:1.03;margin:3px -6px 7px}
+    .card p,.card li{font-size:13px;line-height:1.25;margin:0}
+    .card ul{padding-left:17px;margin:10px 0 0;font-weight:700}
+    .expanded-title{margin-top:2px;margin-bottom:18px}
+    .feature-cards{grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:43px}
+    .feature-card{padding:11px 12px 13px;text-align:center}
+    .pill{display:inline-block;min-width:166px;border-radius:18px;padding:5px 18px;margin-bottom:10px;font-weight:700}.pink{background:#f8d7e2}.yellow{background:#fff2b4}
+    .feature-card img{display:block;width:100%;height:196px;object-fit:cover;border-radius:8px}
+    .feature-card h3{font-size:18px;margin:10px 0 0}
+    .info h2{text-align:left;font-size:21px;margin:23px 0 8px}
+    .info p{font-size:13px;line-height:1.32;margin:0 0 8px}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:stretch}
+    .contact-lines{font-size:13px;line-height:1.7}
+    .map{min-height:150px;position:relative;overflow:hidden;background-color:#e8edf0;background-image:linear-gradient(30deg,transparent 45%,#fff 46% 51%,transparent 52%),linear-gradient(150deg,transparent 43%,#fff 44% 50%,transparent 51%);border:1px solid #ddd}
+    .map:before{content:"📍";position:absolute;left:50%;top:38%;font-size:30px}.map:after{content:"White Rose Chemical\A Kanpur, Uttar Pradesh";white-space:pre;position:absolute;left:57%;top:31%;font-size:10px;color:#b33;font-weight:700}
+    footer{height:92px;padding:18px 12%;background:#fafafa;border-top:1px solid #eee;display:flex;align-items:flex-start;justify-content:space-between;font-size:20px}
+    footer p{margin:38px 0 0;font-size:11px;font-weight:700;text-align:center}
+    @media(max-width:700px){header{height:auto;padding:12px 5%;flex-wrap:wrap;gap:8px}.brand{font-size:14px}.brand img{width:45px;height:45px}nav{width:100%;justify-content:space-between;gap:8px}nav a{padding:8px 0;font-size:11px}.hero{height:370px}h1{font-size:27px;margin-top:28px}.hero-products{width:440px;max-width:80%;transform:translateX(-50%)}.lemons{font-size:68px;left:-18px}.hero:after{font-size:45px}main{padding:25px 5%}.cards{grid-template-columns:1fr}.feature-cards{grid-template-columns:1fr}.bottle-window img{left:50%!important;transform:translateX(-50%)}.contact-grid{grid-template-columns:1fr}footer{height:auto;padding:18px 5%;flex-wrap:wrap;gap:10px}footer p{order:3;width:100%;margin:6px 0}}
+  </style>
 </head>
 <body>
-
-    <header>
-        <div class="logo">
-            <img src="1000018307.jpg" alt="White Rose Logo">
-            White Rose Chemical and Homecare
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#floor-care">Floor Care</a></li>
-                <li><a href="#specialty">Specialty Wash</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Purely Powerful Cleaning.<br>Home is our Heart.</h1>
-            <p>From powerful floor cleaning solutions to gentle skincare, White Rose provides premium hygiene products crafted to protect your family and refresh your home.</p>
-            <a href="#floor-care" class="btn">Explore Collections</a>
-        </div>
-        <div class="hero-image">
-            <img src="1000018320.png" alt="White Rose Floor Cleaners Collection">
-        </div>
+<div class="page">
+  <header id="home">
+    <div class="brand"><img src="1000018307.jpg" alt="White Rose logo"><span>White Rose Chemical<br>and Homecare</span></div>
+    <nav aria-label="Main navigation"><a href="#home">HOME</a><a href="#products">PRODUCTS</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav>
+  </header>
+  <div class="hero">
+    <h1>Purely Powerful Cleaning.<br>Home is Our Heart.</h1>
+    <div class="lemons" aria-hidden="true">🍋🍋</div>
+    <img class="hero-products" src="1000018320.png" alt="White Rose floor cleaning products">
+  </div>
+  <main>
+    <section id="products">
+      <h2>Our Floor Cleaning Collection</h2>
+      <div class="cards">
+        <article class="card"><div class="bottle-window white"><img src="1000018320.png" alt="White floor cleaner"></div><h3>White Floor Cleaner</h3><p>Floor cleaner and disinfectant with a fresh, clean finish.</p><ul><li>Deep cleaning and shine</li><li>Germ protection formula</li></ul></article>
+        <article class="card"><div class="bottle-window rose"><img src="1000018320.png" alt="Rose perfumed floor cleaner"></div><h3>Rose Perfumed Floor<br>Cleaner</h3><p>Rose-perfumed floor cleaner.</p><ul><li>Long-lasting rose fragrance</li><li>Freshens every room</li></ul></article>
+        <article class="card"><div class="bottle-window sandal"><img src="1000018320.png" alt="Sandal perfumed floor cleaner"></div><h3>Sandal Perfumed Floor<br>Cleaner</h3><p>Sandal-perfumed floor cleaner.</p><ul><li>Premium sandalwood aroma</li><li>Warm, soothing fragrance</li></ul></article>
+      </div>
+      <h2 class="expanded-title">Beyond Floor Care: Our Expanded Line</h2>
+      <div class="cards feature-cards">
+        <article class="card feature-card"><span class="pill pink">Rose Skin Care</span><img src="1000002733.jpg" alt="WRC Hand Wash packaging"><h3>WRC Hand Wash - Liquid Skin Care</h3></article>
+        <article class="card feature-card"><span class="pill yellow">Lemon Dish Wash</span><img src="1000004348.jpg" alt="WRC Dish Wash packaging"><h3>WRC Dish Wash - Concentrated Gel<br>Lemon Power</h3></article>
+      </div>
     </section>
-
-    <section id="floor-care" class="products-section">
-        <h2 class="section-title">Our Floor Cleaning Collection</h2>
-        <p class="section-subtitle">Available in multiple sizes. Tough on stains, gentle on your floors, and soothing for your senses.</p>
-
-        <div class="product-grid">
-            <!-- Floor Cleaners (Text descriptions supporting the main group image) -->
-            <div class="product-card">
-                <h3 class="product-title">White Floor Cleaner</h3>
-                <p class="product-desc">Our classic, high-power white phenyl formula for maximum hygiene.</p>
-                <ul class="features-list">
-                    <li>Deep cleaning for tough stains</li>
-                    <li>Germ protection formula</li>
-                    <li>Classic, refreshing clean scent</li>
-                </ul>
-            </div>
-
-            <div class="product-card">
-                <h3 class="product-title">Rose Perfumed Cleaner</h3>
-                <p class="product-desc">Infused with the delicate and sweet essence of fresh roses.</p>
-                <ul class="features-list">
-                    <li>Long-lasting Rose fragrance</li>
-                    <li>Safe for all types of flooring</li>
-                    <li>Streak-free brilliant shine</li>
-                </ul>
-            </div>
-
-            <div class="product-card">
-                <h3 class="product-title">Sandal Perfumed Cleaner</h3>
-                <p class="product-desc">Experience the calm, woody aroma of premium Sandalwood.</p>
-                <ul class="features-list">
-                    <li>Premium soothing Sandal aroma</li>
-                    <li>Natural deodorizing properties</li>
-                    <li>Removes everyday dirt and grime</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="specialty" class="products-section" style="background-color: #fff;">
-        <h2 class="section-title">Beyond Floor Care</h2>
-        <p class="section-subtitle">Discover our specialized cleaning formulas for personal care and kitchen hygiene.</p>
-
-        <div class="product-grid">
-            <!-- Hand Wash -->
-            <div class="product-card" style="border-top: 4px solid #e84393;">
-                <img src="/1000002733.jpg" alt="WRC Hand Wash - Rose">
-                <h3 class="product-title">WRC Hand Wash</h3>
-                <p class="product-desc"><strong>Liquid Skin Care.</strong> Gentle on hands, tough on germs with a beautiful rose fragrance.</p>
-                <ul class="features-list">
-                    <li>Enriched with liquid skincare properties</li>
-                    <li>Refreshing rose scent</li>
-                    <li>Maintains natural moisture balance</li>
-                    <li>Net Volume: 250ml / 500ml</li>
-                </ul>
-            </div>
-
-            <!-- Dish Wash -->
-            <div class="product-card" style="border-top: 4px solid #f1c40f;">
-                <img src="1000004348.jpg" alt="WRC Dish Wash - Lemon Power">
-                <h3 class="product-title">WRC Dish Wash</h3>
-                <p class="product-desc"><strong>Concentrated Gel - Lemon Power.</strong> Cuts through heavy grease leaving dishes sparkling clean.</p>
-                <ul class="features-list">
-                    <li>Just one drop penetrates sponge for excellent foam</li>
-                    <li>Removes stubborn food smells</li>
-                    <li>Heavy grease cutting power</li>
-                    <li>Net Volume: 250ml / 500ml</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <img src="1000018307.jpg" alt="White Rose Logo">
-                <h3>White Rose Chemical<br>and Homecare</h3>
-            </div>
-            <div class="footer-info">
-                <p>📞 Phone: <strong>+91 8400107991</strong></p>
-                <p>✉️ Email: <strong>whiterosechemicalsandhomecare@gmail.com</strong></p>
-                <p>📍 Location: Kanpur, Uttar Pradesh, India</p>
-            </div>
-        </div>
-        <p>&copy; 2026 White Rose Chemical and Homecare. All Rights Reserved.</p>
-    </footer>
-
+    <section class="info" id="about"><h2>About</h2><p>White Rose Chemical and Homecare is committed to making high-quality home and personal-care products. Our products combine effective cleaning with fresh, uplifting fragrances for homes that feel beautifully cared for.</p><p>From floor cleaners to hand wash and dish wash, our range is created for dependable everyday performance and value.</p></section>
+    <section class="info" id="contact"><h2>Contact</h2><div class="contact-grid"><div class="contact-lines"><strong>Contact us</strong><p>📞 Phone: <strong>+91 8400107991</strong></p><p>✉️ Email: <strong>whiterosechemicalsandhomecare@gmail.com</strong></p><p>● Address: Kanpur, Uttar Pradesh, India</p></div><div class="map" role="img" aria-label="Map showing White Rose Chemical in Kanpur"></div></div></section>
+  </main>
+  <footer><span>● ◉ ◎ in</span><p>White Rose Chemical and Homecare · +91 9794794001<br>Kanpur, Uttar Pradesh, India</p><span>♥ ◎ ▶</span></footer>
+</div>
 </body>
 </html>
